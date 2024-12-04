@@ -21,6 +21,7 @@ def pagi_view(request):
     paginator = Paginator(stations_list, 10)
     page = paginator.get_page(page_number)
     context = {
-        "page": page
+        "page": page,
+        "bus_stations": page.object_list
     }
     return render(request, 'index.html', context)
